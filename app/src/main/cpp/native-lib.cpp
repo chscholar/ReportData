@@ -258,7 +258,9 @@ Java_com_sinlincom_reportdata_MainActivity_getReportData(
    if ((sockfd = socket(PF_PACKET,  SOCK_RAW, htons(ETH_P_ALL)))== -1)
    // if ((sockfd = socket(PF_PACKET,  SOCK_DGRAM, htons(ETH_P_IP)))== -1)
     {
-        printf("socket error!\n");
+       int nErrno = errno;
+        printf("errno=%s\n",strerror(errno));
+        char *strError =  strerror(errno);
         resutl = "socket error";
         packet.tipMessage = resutl;
         return obj;

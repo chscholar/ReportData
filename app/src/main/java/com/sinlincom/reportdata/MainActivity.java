@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.telephony.TelephonyManager;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.Timer;
@@ -39,6 +40,26 @@ public class MainActivity extends AppCompatActivity {
 
         String showStr="showStr:";
       //  Object jobject = getReportData(funType);
+
+       /* try{
+            Runtime.getRuntime().exec("su");
+            System.out.print("run su");
+
+            Log.d("ioexception","run not exceptipon");
+        }catch (IOException e)
+        {
+            System.out.print("ioexception");
+            Log.d("ioexception","ioexcepiton"+e.getMessage());
+        }*/
+
+       try{
+           Runtime.getRuntime().exec("su");
+           Log.d("RunTimeexception","RunTimeexception"+"su success");
+       }catch(IOException e)
+       {
+           Log.d("RunTimeexception","RunTimeexception"+e.getMessage());
+       }
+
         getReportData(funType);
 
       /*  Context context  =  getApplicationContext();
